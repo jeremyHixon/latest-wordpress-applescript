@@ -28,6 +28,7 @@ v 1.0
 ## Use:
 * Run the exported application file
 * If you want to use a name other than the default "wordpress" for the folder, change it in the dialog box. (Remember this is used as a folder and database name so keep it simple and machine readable. e.g. lowercase and hyphenated or underscored)
+* You'll likely be prompted for your password. This is for modifying file ownership and permissions
 * Once the script has run you'll be presented with the WordPress setup window. Go through the process as per usual. Inserting your database information with the table being the same as the information you entered into the dialog window and your systems user and password. The rest of the process is up to you. Should be easy as permissions are set in the script as well.
 
 ## The Code:
@@ -62,8 +63,11 @@ if folder_name is not "wordpress" then
 	do shell script rename_command
 end if
 
-set permissions_command to "chown -R _www " & posix_path & folder_name & "; chmod -R g+w " & posix_path & folder_name
-do shell script permissions_command
+set own_command to "chown -R _www " & posix_path & folder_name
+do shell script own_command with administrator privileges
+
+set mod_command to "chmod -R g+w " & posix_path & folder_name
+do shell script mod_command with administrator privileges
 
 set database_command to db_path & " -u " & db_user & " -p" & db_pass & " -e 'create database `" & folder_name & "`;'"
 do shell script database_command
