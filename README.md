@@ -9,7 +9,7 @@ There are a few assumptions here:
 
 You shouldn't need to change much in the script if these assumptions are correct.
 
-## Version
+## Version:
 
 v 1.0
 
@@ -73,4 +73,4 @@ open location local_url & "~" & user_name & "/" & folder_name
 ```
 
 ## History
-* (1) Initial version
+* v 1.0 - Initial version
