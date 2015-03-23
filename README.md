@@ -9,6 +9,10 @@ There are a few assumptions here:
 
 You shouldn't need to change much in the script if these assumptions are correct.
 
+## Version
+
+v 1.0
+
 ## Setup:
 * Open `install_default_wp.scpt` in Script Editor (Applications > Utilities > Script Editor)
 * Edit the first two lines replacing the defaults with your local MySQL user and password
@@ -20,7 +24,6 @@ You shouldn't need to change much in the script if these assumptions are correct
 ## Advanced Setup:
 * If you have MySQL in a custom location you may need to change the `db_path` variable as well. Defaults to `/usr/local/mysql/bin/mysql`
 * You may also need to update `local_url` if you're running an atypical setup. Defaults to `http://localhost/`
-* 
 
 ## Use:
 * Run the exported application file
@@ -68,3 +71,6 @@ do shell script database_command
 set user_name to short user name of (system info)
 open location local_url & "~" & user_name & "/" & folder_name
 ```
+
+## History
+* (1) Initial version
